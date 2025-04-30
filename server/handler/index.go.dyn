@@ -1,0 +1,15 @@
+package handler
+
+import (
+	"github.com/up1io/muxo/encoding"
+	"{{.ModName}}/template/page"
+	"net/http"
+)
+
+func HandleIndexPage() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if err := encoding.EncodeRender(w, r, page.Index()); err != nil {
+			http.Error(w, "unable to process request", http.StatusInternalServerError)
+		}
+	}
+}

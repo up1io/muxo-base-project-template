@@ -1,0 +1,11 @@
+package page
+
+import "{{.ModName}}/template/layout"
+
+templ Index() {
+	@layout.Base() {
+		<main>
+			<h1>Hello World, {{.ProjectName}}</h1>
+		</main>
+	}
+}
