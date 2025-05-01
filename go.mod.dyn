@@ -4,4 +4,5 @@ go 1.24
 
 require (
 	github.com/up1io/muxo {{.MuxoVersion}}
+	github.com/a-h/templ v0.3.857
 )
