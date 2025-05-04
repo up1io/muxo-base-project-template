@@ -1,6 +1,8 @@
 package server
 
-import "net/http"
+import (
+	"net/http"
+)
 
 type Server struct {
 	mux *http.ServeMux
@@ -15,6 +17,7 @@ func NewServer() *Server {
 }
 
 func (s *Server) Init() error {
+	addRoutes(s.mux)
 	return nil
 }
 
