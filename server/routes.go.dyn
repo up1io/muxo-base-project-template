@@ -9,7 +9,7 @@ import (
 
 func addRoutes(mux *http.ServeMux) {
 	withMiddlewares := middleware.CreateStack(
-		localMiddleware.WithLocalization(),
+		localMiddleware.WithLocalization,
 	)
 
 	mux.Handle("/", withMiddlewares(handler.HandleIndexPage()))
