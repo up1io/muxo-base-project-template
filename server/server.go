@@ -1,18 +1,25 @@
 package server
 
+import "net/http"
+
 type Server struct {
+	mux *http.ServeMux
 }
 
 func NewServer() *Server {
-	return &Server{}
+	mux := http.NewServeMux()
+
+	return &Server{
+		mux: mux,
+	}
 }
 
 func (s *Server) Init() error {
 	return nil
 }
 
-func (s *Server) Run() error {
-	return nil
+func (s *Server) Mux() http.ServeMux {
+	return *s.mux
 }
 
 func (s *Server) Shutdown() []error {
