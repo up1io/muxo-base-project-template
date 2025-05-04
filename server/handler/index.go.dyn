@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/up1io/muxo"
 	"{{.ModName}}/template/page"
+	"github.com/up1io/muxo"
 	"net/http"
 )
 
