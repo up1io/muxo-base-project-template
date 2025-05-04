@@ -2,6 +2,7 @@ package server
 
 import (
     localMiddleware "github.com/up1io/muxo/module/local/middleware"
+    "github.com/up1io/muxo/middleware"
 	"{{.ModName}}/server/handler"
 	"net/http"
 )
