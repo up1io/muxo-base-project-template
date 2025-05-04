@@ -1,21 +1,18 @@
 package main
 
 import (
-	"context"
-	"fmt"
-	"io"
-	"os"
+	"github.com/up1io/muxo"
+	"log"
 )
 
-func run(ctx context.Context, w io.Writer, args []string) error {
-	return nil
-}
-
 func main() {
-	ctx := context.Background()
-	if err := run(ctx, os.Stdout, os.Args[1:]); err != nil {
-		_, _ = fmt.Fprintln(os.Stderr, err)
+	srv := server.NewServer()
+	app, err := muxo.NewApp(muxo.WithServer(srv))
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	os.Exit(1)
+	if err := app.Serve(); err != nil {
+		log.Fatal(err)
+	}
 }

@@ -1,11 +1,15 @@
 package page
 
-import "{{.ModName}}/template/layout"
+import (
+    "github.com/up1io/muxo/module/local"
+    "{{.ModName}}/template/layout"
+)
 
 templ Index() {
 	@layout.Base() {
 		<main>
 			<h1>Hello World, {{.ProjectName}}</h1>
+			<p>{local.Text("Get started by build a awesome web application")}</p>
 		</main>
 	}
 }

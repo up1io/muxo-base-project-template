@@ -1,10 +1,15 @@
 package server
 
 import (
+    localMiddleware "github.com/up1io/muxo/module/local/middleware"
 	"{{.ModName}}/server/handler"
 	"net/http"
 )
 
 func addRoutes(mux *http.ServeMux) {
-	mux.Handle("/", handler.HandleIndexPage())
+	withMiddlewares := middleware.CreateStack(
+		localMiddleware.WithLocalization(),
+	)
+
+	mux.Handle("/", withMiddlewares(handler.HandleIndexPage()))
 }
